@@ -118,7 +118,7 @@ if __name__ == "__main__":
                                             快手视频下载小助手 V 0.1
                     Github地址：https://github.com/Gaoyongxian666/Kuaishou_bot
                     公众号：我的光印象  QQ群：1056916780 下载目录：解压目录/download
-                    功能：批量下载他人作品，他人喜欢，自己作品，自己喜欢，本地下载限制
+                    功能：批量下载作品，本地下载限制，不能下载长图类型的短视频
                     特点：因为是模拟手机操作，本软件可以一直使用，除非你进行了APP升级。
                     说明：本软件基于开源项目uiautomator2项目，所以本项目也是开源的，自己也可进行更改，项目很简单。
                     注意：快手app版本必须是最新版本 V7.3.10.13314  更新时间：2020-4-20
@@ -149,6 +149,7 @@ if __name__ == "__main__":
 
     p = Thread(target=task)
     p.start()
+    raw_url_list=[]
 
     for i in range(num):
         try:
@@ -163,10 +164,16 @@ if __name__ == "__main__":
             time.sleep(0.3)
             raw_url = d.clipboard
             print("\033[1;36m获取分享链接：" + raw_url + "\033[0m")
-            q.put(raw_url)
+            if raw_url in raw_url_list:
+                print("获取分享链接：此链接已经获取过了："+raw_url)
+            else:
+                q.put(raw_url)
+                raw_url_list.append(raw_url)
+
+
 
             # 向上滑动,获取下一个
-            d(resourceId="com.smile.gifmaker:id/texture_view_frame").swipe("up", steps=14)
+            d(resourceId="com.smile.gifmaker:id/refresh_layout").swipe("up", steps=10)
         except:
             print("获取分享链接失败")
             time.sleep(4)
