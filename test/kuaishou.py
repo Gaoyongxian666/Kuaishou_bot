@@ -89,12 +89,12 @@ def task():
 
 
 if __name__ == "__main__":
-    print("设置ADB环境变量。。。。")
+    print("设置ADB环境变量中。。。。")
     work_dir = os.path.dirname(sys.argv[0])
-    print(work_dir)
+    # print(work_dir)
     os.chdir(work_dir)
     line = 'adb.exe  devices'
-    print(line)
+    # print(line)
     os.system(line)
     q = queue.Queue()
     pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
