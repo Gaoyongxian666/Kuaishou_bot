@@ -81,10 +81,14 @@ def task():
             mydict = q.get()
             try:
                 file_name=mydict.get("file_name")
-                video_url=mydict.get("video_url")
-                print("\033[1;93m下载视频线程：" + file_name + "：开始下载" + "\033[0m")
-                downloadFile(file_name, video_url)
-                print("\033[1;93m下载视频线程：" + file_name + "：下载完成" + "\033[0m")
+                if file_name=="重复下载":
+                    time.sleep(1)
+                    print("\033[1;93m下载视频线程：" + file_name + "" + "\033[0m")
+                else:
+                    video_url=mydict.get("video_url")
+                    print("\033[1;93m下载视频线程：" + file_name + "：开始下载" + "\033[0m")
+                    downloadFile(file_name, video_url)
+                    print("\033[1;93m下载视频线程：" + file_name + "：下载完成" + "\033[0m")
             except:
                 print(traceback.format_exc())
                 print("下载视频线程：" + mydict + "下载失败")
@@ -115,46 +119,7 @@ def open_brower(browser,ID):
     else:
         print("没有安全认证")
 
-
-def kuaishou():
-    line = input("输入作者分享链接：")
-    pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
-    url_list = re.findall(pattern, line)
-    html_url = url_list[0]
-    # print(html_url)
-    header = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Mobile Safari/537.36'
-    }
-    r = requests.get(html_url, headers=header)
-    reditList = r.history
-    last_url = reditList[len(reditList) - 1].headers["location"]
-    print("获取链接："+last_url)
-    path = urlparse(last_url).path
-    ID = path.split("/")[3]
-    print("获取ID："+ID)
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument("--mute-audio")  # 静音
-    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    chrome_options.binary_location = os.path.dirname(sys.argv[0]) + "\Google Chrome\chrome.exe"
-    browser = webdriver.Chrome(executable_path=os.path.dirname(sys.argv[0]) + "\Google Chrome\chromedriver.exe",
-                               options=chrome_options)
-    wait = WebDriverWait(browser, 10)
-    open_brower(browser,ID)
-
-    time.sleep(1)
-    element1 = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, '#app > div.profile > div.load-more.profile-content > div.tab > span.active')))
-    raw_num = browser.find_element_by_css_selector(
-        "#app > div.profile > div.load-more.profile-content > div.tab > span.active").text.strip()
-    re_num = re.match(".*?(\d+).*?", raw_num, re.S)
-    num = int(re_num.group(1))
-    print("作者的作品数：" + str(num))
-    alreay_li = []
-    p = Thread(target=task)
-    p.start()
+def get_video(browser,wait,alreay_li,num):
     for i in range(round(num / 10)):
         li_list = browser.find_elements_by_css_selector(
             "#app > div.profile > div.load-more.profile-content > div:nth-child(3) > ul > li")
@@ -183,7 +148,7 @@ def kuaishou():
                         EC.visibility_of_element_located((By.CSS_SELECTOR, "body > div.pl-modal.alert > div"))
                     )
                     print("出现注意弹框")
-                    browser.find_element_by_css_selector("body > div.pl-modal.alert > div > div > div.pl-modal-alert-action > button").click()
+                    get_video(browser,wait,num,alreay_li)
                 except TimeoutException:
                     print("没有出现弹框")
                 finally:
@@ -197,6 +162,54 @@ def kuaishou():
                     browser.find_element_by_css_selector("#app > div.profile > div.photo-preview > div.close").click()
                     print("\033[1;94m获取链接："+ str({"file_name":file_name,"video_url":video_url})+ "\033[0m")
                     q.put({"file_name":file_name,"video_url":video_url})
+            else:
+                q.put({"file_name":"重复下载","video_url":""})
+
+
+def kuaishou():
+    kuaishou_flag=input("作者是否有快手号（y/n）：")
+    if kuaishou_flag=="y":
+        ID = input("输入作者快手号：")
+    else:
+        line = input("输入作者分享链接：")
+        pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+        url_list = re.findall(pattern, line)
+        html_url = url_list[0]
+        # print(html_url)
+        header = {
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Mobile Safari/537.36'
+        }
+        r = requests.get(html_url, headers=header)
+        reditList = r.history
+        last_url = reditList[len(reditList) - 1].headers["location"]
+        print("获取链接："+last_url)
+        path = urlparse(last_url).path
+        ID = path.split("/")[3]
+    print("获取ID："+ID)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument("--mute-audio")  # 静音
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    chrome_options.binary_location = os.path.dirname(sys.argv[0]) + "\Google Chrome\chrome.exe"
+    browser = webdriver.Chrome(executable_path=os.path.dirname(sys.argv[0]) + "\Google Chrome\chromedriver.exe",
+                               options=chrome_options)
+    wait = WebDriverWait(browser, 10)
+    open_brower(browser,ID)
+
+    time.sleep(1)
+    element1 = wait.until(
+        EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, '#app > div.profile > div.load-more.profile-content > div.tab > span.active')))
+    raw_num = browser.find_element_by_css_selector(
+        "#app > div.profile > div.load-more.profile-content > div.tab > span.active").text.strip()
+    re_num = re.match(".*?(\d+).*?", raw_num, re.S)
+    num = int(re_num.group(1))
+    print("作者的作品数：" + str(num))
+    alreay_li = []
+    p = Thread(target=task)
+    p.start()
+    get_video(browser,wait,alreay_li,num)
 
 
 # body > div.pl-modal.alert > div
@@ -209,11 +222,12 @@ if __name__ == "__main__":
 
     print('''
 ************************************************************************************************************************
-                            快手视频下载小助手 V 0.12
+                            快手视频下载小助手 V 0.13
     Github地址：https://github.com/Gaoyongxian666/Kuaishou_bot
     QQ群：1056916780 下载目录：解压目录/download  更新：2020-5-2
     功能：批量下载作品     
-    说明：允许软件网络访问,登陆是必须操作，为了获取cookie，有了cookie以后不用频繁登陆。
+    说明：有快手号的，输入快手号。不显示快手号的，或者显示用户ID的：使用作者分享链接的方式。
+    允许软件网络访问,登陆是必须操作，为了获取cookie，有了cookie以后不用频繁登陆。
     进行登陆，安全认证使用的压缩包里面的浏览器与外部浏览器无关，程序调起浏览器，主程序会处于阻塞状态。
     登陆完成，安全认证完成不要关闭浏览器，一定要回到主程序里面进行输入，从阻塞状态变成执行状态。
     程序打开的浏览器页面不要自己关闭，主程序里面有提示,按照操作完成。

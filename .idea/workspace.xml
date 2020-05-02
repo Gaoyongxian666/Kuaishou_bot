@@ -11,7 +11,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Kuaishou_bot$demo__1_.coverage" NAME="demo (1) Coverage Results" MODIFIED="1588384945414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Kuaishou_bot$demo.coverage" NAME="demo Coverage Results" MODIFIED="1587357803456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Kuaishou_bot$kuaishou_chrome.coverage" NAME="kuaishou_chrome Coverage Results" MODIFIED="1588385464493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Kuaishou_bot$kuaishou_chrome.coverage" NAME="kuaishou_chrome Coverage Results" MODIFIED="1588389389714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Kuaishou_bot$kuaishou.coverage" NAME="kuaishou Coverage Results" MODIFIED="1587785362912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -19,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="1387">
               <caret line="73" column="89" selection-start-line="73" selection-start-column="89" selection-end-line="73" selection-end-column="89" />
             </state>
           </provider>
@@ -43,19 +43,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kuaishou_chrome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="136" selection-end-column="48" />
+            <state relative-caret-position="70">
+              <caret line="224" column="44" selection-start-line="224" selection-start-column="44" selection-end-line="224" selection-end-column="44" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#424#561#0" />
-                <element signature="e#593#695#0" />
-                <element signature="e#720#909#0" />
-                <element signature="e#951#1387#0" />
-                <element signature="e#1425#1569#0" />
-                <element signature="e#1590#2185#0" />
-                <element signature="e#2233#4560#0" />
-                <element signature="e#2236#3895#0" />
-                <element signature="e#3141#3853#0" />
+                <element signature="e#3105#3511#0" />
+                <element signature="e#3560#5980#0" />
               </folding>
             </state>
           </provider>
@@ -88,8 +81,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="152">
-                <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <first_editor relative-caret-position="133">
+                <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="58" />
               </first_editor>
               <second_editor />
             </state>
@@ -148,6 +141,11 @@
               <item name="Kuaishou_bot" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kuaishou_bot" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Kuaishou_bot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kuaishou_bot" type="462c0819:PsiDirectoryNode" />
+              <item name="Google Chrome" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -184,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.demo (1)">
+  <component name="RunManager" selected="Python.kuaishou_chrome">
     <configuration name="demo (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Kuaishou_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -303,21 +301,23 @@
       <workItem from="1588343552833" duration="1091000" />
       <workItem from="1588375485134" duration="1614000" />
       <workItem from="1588379976647" duration="6447000" />
+      <workItem from="1588387003699" duration="3623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45653000" />
+    <option name="totallyTimeSpent" value="49276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12254161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12405446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36557376" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36557376" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -358,6 +358,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1387">
+          <caret line="73" column="89" selection-start-line="73" selection-start-column="89" selection-end-line="73" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/kuaishou.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1919">
@@ -370,6 +377,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cookies.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ss.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -385,31 +395,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cookies.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="73" column="89" selection-start-line="73" selection-start-column="89" selection-end-line="73" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kuaishou_chrome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="136" selection-end-column="48" />
+        <state relative-caret-position="70">
+          <caret line="224" column="44" selection-start-line="224" selection-start-column="44" selection-end-line="224" selection-end-column="44" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#424#561#0" />
-            <element signature="e#593#695#0" />
-            <element signature="e#720#909#0" />
-            <element signature="e#951#1387#0" />
-            <element signature="e#1425#1569#0" />
-            <element signature="e#1590#2185#0" />
-            <element signature="e#2233#4560#0" />
-            <element signature="e#2236#3895#0" />
-            <element signature="e#3141#3853#0" />
+            <element signature="e#3105#3511#0" />
+            <element signature="e#3560#5980#0" />
           </folding>
         </state>
       </provider>
@@ -417,8 +410,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="152">
-            <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <first_editor relative-caret-position="133">
+            <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="58" />
           </first_editor>
           <second_editor />
         </state>
