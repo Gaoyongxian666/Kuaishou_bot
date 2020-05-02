@@ -71,3 +71,4 @@
 for j in range(22):
       k = "%03d" % j
       print(k)
+print("\033[1;94m网页登陆：请在浏览器中完成登陆，登陆后不要关闭浏览器，记得回到主程序输入" +str({"file_name":1,"video_url":2})+ "\033[0m")
