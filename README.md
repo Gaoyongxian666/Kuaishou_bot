@@ -1,10 +1,10 @@
-# 快手视频下载小助手 V 0.15
+# 快手视频下载小助手 V 0.12
 ### 只需电脑即可，selenium项目  
 
  * 项目就在kuaishou_chrome.py ,最后使用pyinstaller打包exe，大约79M
  * V0.1  使用同时电脑和手机自动化项目 
- * V0.11 使用selenium,  https://ww.lanzous.com/ibzphjc  
- * V0.12 修复bug，完善流程   https://ww.lanzous.com/ic3kbsj    
+ * V0.11 使用selenium, https://ww.lanzous.com/ic5kdte     
+ * V0.12 修复bug，完善流程   https://ww.lanzous.com/ic675uf      
 
 >项目源码（因为浏览器太大，上传不了github）：  
 
